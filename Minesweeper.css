@@ -1,0 +1,22 @@
+.input {
+	width: 3em;
+}
+
+.gridBtn {
+	background-color: #c4c9d1;
+	vertical-align: top;
+	display: inline-flex;
+    align-items: center;
+    justify-content: center;
+	width: 1.5em;
+	height: 1.5em;
+	border: .5px solid black;
+}
+
+#grid {
+	display: inline-block;
+}
+
+#reset {
+	display: inline-block;
+}

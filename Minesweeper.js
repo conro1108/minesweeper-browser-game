@@ -207,55 +207,13 @@ var incBombCount = function(bCountDiv) {
 
 var getAdjacent = function(x, y, l, w) {
 	var adj = [];
-	if(x==0 && y==0){
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y+1));
-		adj.push(getButtonByCoord(x, y+1));	
-	} else if(x==0 && y==w-1){
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y-1));
-		adj.push(getButtonByCoord(x, y-1));	
-	} else if(x==l-1 && y==0){
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y+1));
-		adj.push(getButtonByCoord(x, y+1));	
-	} else if(x==l-1 && y==w-1){
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y-1));
-		adj.push(getButtonByCoord(x, y-1));	
-	} else if(y==0) {
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y+1));
-		adj.push(getButtonByCoord(x, y+1));
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y+1));
-	} else if(x==0) {
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y+1));
-		adj.push(getButtonByCoord(x+1, y-1));
-		adj.push(getButtonByCoord(x, y-1));
-		adj.push(getButtonByCoord(x, y+1));
-	} else if(x==l-1){
-		adj.push(getButtonByCoord(x, y+1));
-		adj.push(getButtonByCoord(x, y-1));
-		adj.push(getButtonByCoord(x-1, y+1));
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y-1));
-	} else if(y==w-1){
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y-1));
-		adj.push(getButtonByCoord(x, y-1));
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y-1));
-	} else {
-		adj.push(getButtonByCoord(x-1, y-1));
-		adj.push(getButtonByCoord(x-1, y));
-		adj.push(getButtonByCoord(x-1, y+1));
-		adj.push(getButtonByCoord(x, y+1));
-		adj.push(getButtonByCoord(x, y-1));
-		adj.push(getButtonByCoord(x+1, y-1));
-		adj.push(getButtonByCoord(x+1, y));
-		adj.push(getButtonByCoord(x+1, y+1));
+
+	for(var x_i = x-1; x_i <= x+1; x_i++){
+		for(var y_i = y-1; y_i <= y+1; y_i++){
+			if(x_i >= 0 && x_i < l && y_i >= 0 && y_i < w){
+				adj.push(getButtonByCoord(x_i, y_i));
+			}
+		}
 	}
 
 	return adj;
